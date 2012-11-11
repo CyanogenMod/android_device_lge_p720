@@ -1,0 +1,26 @@
+--- /tmp/p720/vendor/ti/GFX_Linux_DDK/eurasia_km/services4/3rdparty/omaplfb_linux/omaplfb_bv.c	2012-10-23 14:49:20.000000000 +0100
++++ eurasia_km/services4/3rdparty/omaplfb_linux/omaplfb_bv.c	2012-12-08 00:11:00.066612580 +0000
+@@ -570,16 +572,22 @@
+ 			pBufDesc = psPVRFBInfo->psBltFBsBvHndl[i];
+ 			if (pBufDesc)
+ 			{
++				struct bvphysdesc *pPhyDesc;
+ 				bv_entry->bv_unmap(pBufDesc);
++				pPhyDesc = (struct bvphysdesc*) pBufDesc->auxptr;
++				kfree(pPhyDesc->pagearray);
++				kfree(pPhyDesc);
+ 				kfree(pBufDesc);
+ 			}
+ 		}
+-	}
+ 	kfree(psPVRFBInfo->psBltFBsBvHndl);
++		psPVRFBInfo->psBltFBsBvHndl = NULL;
++	}
+ 
+ 	if (psPVRFBInfo->psBltFBsIonHndl)
+ 	{
+ 		ion_free(gpsIONClient, psPVRFBInfo->psBltFBsIonHndl);
++		psPVRFBInfo->psBltFBsIonHndl = NULL;
+ 	}
+ }
+ 

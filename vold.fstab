@@ -1,0 +1,2 @@
+dev_mount extsdcard /storage/sdcard1 auto /devices/platform/omap/omap_hsmmc.0/mmc_host
+dev_mount emmc /storage/sdcard0 15 /devices/platform/omap/omap_hsmmc.1/mmc_host
