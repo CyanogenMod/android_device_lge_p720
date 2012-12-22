@@ -76,7 +76,6 @@ PRODUCT_PACKAGES += \
     wifimac
 
 PRODUCT_PACKAGES += \
-    lights.omap4 \
     libaudioutils \
     audio.a2dp.default \
     audio_policy.default
