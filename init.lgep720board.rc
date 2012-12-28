@@ -8,6 +8,7 @@ on early-init
     mkdir /storage/sdcard1 0000 system system
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
+    mkdir /persist 0771 system radio
 
     chown system system /sys/module/lge_handle_panic/parameters/hidden_reset_enable
     chmod 660 /sys/module/lge_handle_panic/parameters/hidden_reset_enable
