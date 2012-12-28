@@ -44,3 +44,5 @@ lge.nfc.fwpatchv13=yes
 lge.nfc.indicator=yes
 lge.nfc.defaultonoff=on
 
+## Default USB layout
+persist.sys.usb.config=mtp,adb
